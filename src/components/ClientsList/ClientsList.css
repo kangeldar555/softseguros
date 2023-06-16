@@ -1,0 +1,26 @@
+.clients-list-container {    
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: white;
+    min-height: 8vh;
+    align-items: center;
+}
+
+.clients-list-container 
+.clients-list-container_list {
+    width: 100%;
+}
+
+.clients-list-container
+.clients-list-container_button {
+    margin: 0;
+}
+
+.clients-list-container_text {
+    padding-right: 50px;
+}
+
+.client-list-container_text-grid {
+    font-size: 13px;
+}

@@ -1,0 +1,36 @@
+.search-bar-container,
+.search-bar-container__input{
+    width: 100%;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+  }
+  
+  .search-bar-container
+  .search-bar-container__icon {
+    margin-inline: 6px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .search-bar-container__input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding-inline: 4px;
+    padding-block: 10px;    
+  }
+
+  .search-bar-container__input:hover{
+    background: #d8d8ff2f;
+  }
+  
+  .search-bar-container__input:focus{
+    background: #d8d8ff78;
+  }
+
+  

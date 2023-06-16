@@ -1,0 +1,26 @@
+.create-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.create-container header h1 {
+    color: white;
+}
+
+.create-container main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-inline: 5%;
+    padding-block: 3%;
+    background-color: white;
+}
+
+
+
+.create-container_header {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
