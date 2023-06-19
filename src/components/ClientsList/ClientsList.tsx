@@ -1,23 +1,36 @@
-import React from 'react';
-import { List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Divider, Grid, Typography } from '@mui/material';
+import React, { useRef } from 'react';
+import { List, ListItem, ListItemText, ListItemSecondaryAction, IconButton, Divider, Grid, CircularProgress} from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import './ClientsList.css';
 
 interface Client {
   id: string;
-  fullName: string;
+  full_name: string;
   email: string;
-  birthDate: string;
-  creationDate: string;
+  birth_date: string;
+  creation_date: string;
 }
-
 interface ClientListProps {
   clients: Client[];
   onEditClient: (client: Client) => void;
-  onDeleteClient: (clientId: string) => void;
+  onDeleteClient: (clientId: string, clientName: string) => void;
+}
+
+const DatabaseStatusMessage = () => {
+  const isFirstRenderRef = useRef<boolean>(true);
+
+  // Mensaje de carga y resultado de la búsqueda de la base de datos
+  if(isFirstRenderRef.current) {
+    isFirstRenderRef.current = false;
+    return <CircularProgress />
+  }
+  else {
+    return <p>No hay clientes</p>
+  }
 }
 
 const ClientsList = ({ clients, onEditClient, onDeleteClient }: ClientListProps) => {
+
   const hasClients = clients?.length > 0;
   return (
     <div className='clients-list-container'>
@@ -31,7 +44,7 @@ const ClientsList = ({ clients, onEditClient, onDeleteClient }: ClientListProps)
                   className='clients-list-container_text'
                   primary={
                     <>
-                      <strong>{client.fullName}</strong>
+                      <strong>{client.full_name}</strong>
                       <Grid className='client-list-container_text-grid' alignItems="center" container spacing={0.5}>
                         <Grid className='client-list-container_info' item xs={12} sm={3}>
                           <strong>Email:</strong>
@@ -43,23 +56,34 @@ const ClientsList = ({ clients, onEditClient, onDeleteClient }: ClientListProps)
                           <strong>Fecha de nacimiento:</strong>
                         </Grid>
                         <Grid item xs={12} sm={9}>
-                          {client.birthDate}
+                          {client.birth_date}
                         </Grid>
                         <Grid className='client-list-container_info' item xs={12} sm={3}>
                           <strong>Fecha de creación:</strong>
                         </Grid>
                         <Grid item xs={12} sm={9}>
-                          {client.creationDate}
+                          {client.creation_date}
                         </Grid>
                       </Grid>
                     </>
                   }
                 />
                 <ListItemSecondaryAction>
-                  <IconButton className='clients-list-container_button' edge="end" aria-label="Edit" onClick={() => onEditClient(client)}>
+                  <IconButton
+                  className='clients-list-container_button'
+                  edge="end" aria-label="Update"
+                  onClick={() => onEditClient(client)}
+                  title='Actualizar'
+                  >
                     <Edit />
                   </IconButton>
-                  <IconButton className='clients-list-container_button' edge="end" aria-label="Delete" onClick={() => onDeleteClient(client.id)}>
+                  <IconButton 
+                  className='clients-list-container_button'
+                  edge="end"
+                  aria-label="Delete"
+                  onClick={() => onDeleteClient(client.id, client.full_name)}
+                  title='Eliminar'
+                  >
                     <Delete />
                   </IconButton>
                 </ListItemSecondaryAction>
@@ -68,7 +92,7 @@ const ClientsList = ({ clients, onEditClient, onDeleteClient }: ClientListProps)
             </React.Fragment>
           ))}
         </List>
-        : <p>No hay clientes</p>
+        : <DatabaseStatusMessage/>
       }
     </div>
   );

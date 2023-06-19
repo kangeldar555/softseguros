@@ -1,0 +1,12 @@
+.form-container{
+    width: 100%;
+}
+
+.form-container label {
+    padding-bottom: 5px;
+}
+
+.form-container_buttons{
+    padding-top: 30px;
+    gap: 20px;
+}

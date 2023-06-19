@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(4,18,51,1) max(40vh,300px), rgba(238,238,238,1) max(40vh,300px));
+  background: linear-gradient(180deg, rgba(4,18,51,1) max(43vh,320px), rgba(238,238,238,1) max(43vh,320px));
   padding-block: 10vh;
   padding-inline: 5vw;
 }

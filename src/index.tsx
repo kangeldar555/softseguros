@@ -9,6 +9,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 
+// Aplicamos algunos estilos por defecto de Materials UI con <CssBaseline />
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

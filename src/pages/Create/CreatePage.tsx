@@ -1,7 +1,5 @@
-import React from 'react';
 import './CreatePage.css';
-import NewClientForm from '../../components/NewClientForm/NewClientForm';
-
+import ClientForm from '../../components/ClientForm/ClientForm'
 
 const Create = () => {
   return (
@@ -10,7 +8,7 @@ const Create = () => {
       <h1>Nuevo cliente</h1>
     </header>
     <main>
-      <NewClientForm/>
+      <ClientForm/>
     </main>
     </div>
   );
