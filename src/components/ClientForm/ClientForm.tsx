@@ -98,7 +98,8 @@ const ClientForm = ({ data, className = '', vertical = false, onSave, onCancel, 
             name="full_name"
             placeholder="Nombre completo"
             value={formData.full_name}
-            onChange={handleChange}
+            onChange={handleChange}            
+            size={vertical ? 'small' : 'medium'}
             fullWidth
             required
           />
@@ -111,6 +112,7 @@ const ClientForm = ({ data, className = '', vertical = false, onSave, onCancel, 
             type="number"
             value={formData.id}
             onChange={handleChange}
+            size={vertical ? 'small' : 'medium'}
             fullWidth
             required
             disabled={editMode}
@@ -123,6 +125,7 @@ const ClientForm = ({ data, className = '', vertical = false, onSave, onCancel, 
             type="date"
             value={formData.birth_date}
             onChange={handleChange}
+            size={vertical ? 'small' : 'medium'}
             fullWidth
             required
           />
@@ -135,6 +138,7 @@ const ClientForm = ({ data, className = '', vertical = false, onSave, onCancel, 
             type="email"
             value={formData.email}
             onChange={handleChange}
+            size={vertical ? 'small' : 'medium'}
             fullWidth
           />
         </Grid>
